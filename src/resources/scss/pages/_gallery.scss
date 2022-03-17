@@ -1,0 +1,129 @@
+.p-albums-list {
+    display: grid;
+    justify-content: center;
+    gap: 60px;
+}
+
+.p-album {
+    display: flex;
+    @include responsive(flex-direction, column, row);
+    @include responsive(gap, 20px, 60px);
+    align-items: center;
+
+    &__image {
+        height: 150px;
+        border-radius: $border-radius-base;
+    }
+
+    &__description {
+        display: flex;
+        @include responsive(align-items, center, start);
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    &__name {
+        padding: 10px;
+        background: $color-accent-dark;
+        border-radius: $border-radius-base;
+        font-size: $font-size-s;
+        color: $color-accent-superlight;
+    }
+}
+
+.p-gallery-app {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.9);
+    width: 100vw;
+    height: 100vh;
+
+    &__main {
+        width: 100vw;
+        height: var(--vh);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @media (min-height: 600px) {
+            height: calc(var(--vh) - 150px);
+        }
+    }
+
+    &__photo {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    &__arrow {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background: $color-base-superlight;
+        border: 2px solid $color-base-dark;
+        cursor: pointer;
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            border: solid $color-base-dark;
+            border-width: 0 3px 3px 0;
+            padding: 3px;
+        }
+
+        &--left {
+            left: 0;
+            top: 50%;
+            border-top-right-radius: $border-radius-base;
+            border-bottom-right-radius: $border-radius-base;
+            &::after {
+                transform: translate(-50%, -50%) rotate(135deg);
+            }
+        }
+
+        &--right {
+            right: 0;
+            top: 50%;
+            border-top-left-radius: $border-radius-base;
+            border-bottom-left-radius: $border-radius-base;
+            &::after {
+                transform: translate(-50%, -50%) rotate(-45deg);
+            }
+        }
+    }
+
+    &__list {
+        position: fixed;
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(calc(50vw - 100px - (200px * var(--selected))));
+        display: none;
+        @media (min-height: 600px) {
+            display: flex;
+        }
+    }
+
+    &__item {
+        transition: opacity 0.2s ease-in-out;
+        &--light {
+            opacity: 0.3;
+        }
+    }
+
+    &__close-btn {
+        position: absolute;
+        border: 2px solid $color-base-dark;
+        background: $color-gray-superlight;
+        border-radius: $border-radius-base;
+        padding: 10px 13px;
+        top: 10px;
+        right: 10px;
+        color: $color-base-dark;
+        cursor: pointer;
+    }
+}

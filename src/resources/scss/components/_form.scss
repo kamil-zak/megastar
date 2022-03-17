@@ -1,0 +1,36 @@
+.c-form {
+    display: grid;
+    gap: 20px;
+
+    &__field {
+        display: grid;
+    }
+
+    &__label {
+        font-size: $font-size-xs;
+        color: $color-gray;
+    }
+
+    &__input {
+        font-family: $font-base;
+        color: $color-accent-superdark;
+        border: none;
+        border-radius: $border-radius-base;
+        font-size: $font-size-s;
+        padding: 10px;
+        background: $color-accent-light;
+
+        &--textarea {
+            font-size: $font-size-xs;
+            min-height: 300px;
+        }
+
+        &:disabled {
+            opacity: 0.5;
+        }
+    }
+
+    &__submit {
+        justify-self: right;
+    }
+}

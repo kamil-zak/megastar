@@ -1,0 +1,19 @@
+.c-picker {
+    display: grid;
+    justify-items: center;
+    gap: 20px;
+    &__icon {
+        &--first {
+            filter: invert(71%) sepia(47%) saturate(6333%) hue-rotate(322deg) brightness(84%) contrast(109%);
+        }
+        &--second {
+            filter: invert(89%) sepia(30%) saturate(825%) hue-rotate(29deg) brightness(88%) contrast(96%);
+        }
+        &--third {
+            filter: invert(42%) sepia(80%) saturate(2626%) hue-rotate(255deg) brightness(91%) contrast(90%);
+        }
+        &--fourth {
+            filter: invert(64%) sepia(43%) saturate(709%) hue-rotate(169deg) brightness(89%) contrast(93%);
+        }
+    }
+}

@@ -1,0 +1,43 @@
+// ----------------------------------
+// SETTINGS
+// ----------------------------------
+
+@import 'settings/variables';
+@import 'settings/mixins';
+@import 'settings/functions';
+// ----------------------------------
+// BASE
+// ----------------------------------
+
+@import 'base/reset';
+@import 'base/generic';
+@import 'base/utilities';
+
+// ----------------------------------
+// COMPONENTS
+// ----------------------------------
+
+@import 'components/heading';
+@import 'components/text';
+@import 'components/picker';
+@import 'components/spinner';
+@import 'components/button';
+@import 'components/form';
+
+// ----------------------------------
+// LAYOUT
+// ----------------------------------
+@import 'layout/container';
+@import 'layout/navbar';
+@import 'layout/footer';
+@import 'layout/section';
+@import 'layout/grid';
+
+// ----------------------------------
+// PAGES
+// ----------------------------------
+@import 'pages/home';
+@import 'pages/timetable';
+@import 'pages/gallery';
+@import 'pages/contact';
+@import 'pages/error';

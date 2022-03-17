@@ -1,0 +1,10 @@
+.l-footer {
+    background-color: $color-base-dark;
+    padding: 20px 0;
+
+    &__text {
+        text-align: center;
+        font-size: $font-size-xs;
+        color: $color-gray-light;
+    }
+}

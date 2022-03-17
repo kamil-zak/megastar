@@ -1,0 +1,106 @@
+@keyframes timeEntry {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.p-lines-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.p-line {
+    background: $color-accent-superlight;
+    min-height: 600px;
+    position: relative;
+    text-align: center;
+
+    &__error {
+        color: coral;
+        font-size: $font-size-base;
+        text-align: center;
+        display: grid;
+        justify-items: center;
+        gap: 30px;
+    }
+}
+
+.p-direction {
+    align-self: start;
+    display: grid;
+    gap: 30px;
+
+    &__points {
+        justify-self: center;
+        padding: 10px;
+        background: $color-accent-dark;
+        border-radius: $border-radius-base;
+        @include responsive(font-size, $font-size-s, $font-size-base);
+        color: $color-accent-superlight;
+        text-align: center;
+    }
+    &__label {
+        @include responsive(font-size, $font-size-xs, $font-size-s);
+        color: $color-gray;
+        text-align: center;
+    }
+    &__next {
+        font-size: $font-size-s;
+        font-weight: $font-weight-bold;
+        color: $color-accent;
+        text-align: center;
+    }
+
+    &__info {
+        font-size: $font-size-s;
+    }
+}
+
+.p-timetable {
+    display: grid;
+    gap: 10px;
+    &__label {
+        @include responsive(font-size, $font-size-s, $font-size-base);
+        color: $color-base-dark;
+        text-align: center;
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    &__item {
+        font-size: $font-size-base;
+        color: $color-accent-superdark;
+        animation: timeEntry 0.5s;
+        animation-fill-mode: both;
+        border-bottom: 3px solid $color-accent;
+        border-bottom: 3px solid $color-accent;
+        padding-bottom: 6px;
+        &--active {
+            border-color: red;
+        }
+    }
+}
+
+.p-foreclosures {
+    margin: 0 auto;
+    margin-top: 50px;
+    &__symbol {
+        font-size: $font-size-base;
+        font-weight: $font-weight-bold;
+        color: $color-accent-dark;
+        padding-right: 20px;
+    }
+    &__description {
+        font-size: $font-size-s;
+        color: $color-accent;
+    }
+}

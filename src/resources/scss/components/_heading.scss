@@ -1,0 +1,9 @@
+.c-heading {
+    @include responsive(margin-bottom, 25px, 50px);
+    @include responsive(font-size, $font-size-base, $font-size-lg);
+    color: $color-accent-dark;
+
+    &--light {
+        color: $color-accent-light;
+    }
+}

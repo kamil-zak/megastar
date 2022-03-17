@@ -1,0 +1,21 @@
+.p-company-data {
+    display: grid;
+    gap: 30px;
+    &__phone {
+        font-size: $font-size-lg;
+        color: $color-accent-dark;
+    }
+    &__email {
+        font-size: $font-size-base;
+        color: $color-gray-dark;
+    }
+    &__details {
+        font-size: $font-size-s;
+        color: $color-gray;
+    }
+}
+
+.p-contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}

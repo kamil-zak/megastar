@@ -1,0 +1,115 @@
+.p-hero {
+    overflow: hidden;
+    height: calc(100vh - #{$navbar-height});
+    min-height: 650px;
+    background: image('sea.svg') no-repeat bottom;
+    @include responsive(background-size, 100% 68px, 100% 30vh);
+
+    &__container {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        gap: 50px;
+        height: 100%;
+
+        @include breakpoint(md) {
+            grid-template-columns: max-content 1fr;
+            grid-template-rows: auto 1fr;
+        }
+    }
+    &__slogan {
+        @include responsive(margin-top, 25px, 100px);
+    }
+
+    &__subtext {
+        @include responsive(font-size, $font-size-xs, $font-size-s, $font-size-base);
+        color: $color-gray;
+        @include responsive(text-align, center, left);
+    }
+
+    &__text {
+        @include responsive(font-size, $font-size-lg, $font-size-xl, $font-size-xxl);
+        color: $color-gray-dark;
+        @include responsive(text-align, center, left);
+    }
+
+    &__img-container {
+        display: flex;
+        justify-content: center;
+        @include breakpoint(md) {
+            justify-content: right;
+            grid-row: span 2;
+            padding-bottom: 15vh;
+            padding-top: 30px;
+        }
+    }
+    &__img {
+        @include responsive(max-width, 100%, inherit);
+        height: 100%;
+    }
+
+    &__contact {
+        display: grid;
+        grid-template-columns: auto max-content;
+        align-items: center;
+        align-self: center;
+        @include responsive(margin-bottom, 100px, 30vh);
+        @include responsive(justify-self, center, $lg: end);
+    }
+
+    &__phone-icon {
+        background: image('icon-tel.svg');
+        background-size: contain;
+        width: 50px;
+        height: 50px;
+        margin-right: 15px;
+    }
+
+    &__phone {
+        @include responsive(font-size, $font-size-base, $lg: $font-size-lg);
+        color: $color-gray-dark;
+    }
+
+    &__call {
+        grid-column: 2 / span 1;
+        justify-self: end;
+        @include responsive(font-size, $font-size-s, $lg: $font-size-base);
+        color: $color-gray;
+    }
+}
+
+.p-interesting {
+    &__heading {
+        max-width: 840px;
+        margin: 0 auto;
+        text-align: center;
+        margin-bottom: 35px;
+    }
+
+    &__grid-container {
+        display: grid;
+        gap: 12px;
+        @include breakpoint(md) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    &__grid-item {
+        align-self: stretch;
+        width: 100%;
+        object-fit: cover;
+        border-radius: $border-radius-base;
+
+        &--large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        &--vertical {
+            grid-row: span 2;
+        }
+
+        &--mobile-hidden {
+            @include responsive(display, none, block);
+        }
+    }
+}

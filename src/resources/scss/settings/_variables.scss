@@ -1,0 +1,46 @@
+// COLORS
+$color-base-dark: #1c264a;
+$color-base: #2a396f;
+$color-base-superlight: #f3f5fc;
+
+$color-gray-dark: #2b2f3b;
+$color-gray: #565e76;
+$color-gray-light: #b2b7c8;
+$color-gray-superlight: #f4f4f7;
+
+$color-accent-superdark: #5d3423;
+$color-accent-dark: #9a563a;
+$color-accent: #c7856b;
+$color-accent-light: #e3c2b5;
+$color-accent-superlight: #fbf6f3;
+
+// FONT
+$font-base: 'Montserrat', 'Arial', sans-serif;
+
+$font-weight-base: 400;
+$font-weight-bold: 600;
+
+$font-size-xxs: 1rem;
+$font-size-xs: 1.4rem;
+$font-size-s: 1.8rem;
+$font-size-base: 2.4rem;
+$font-size-lg: 3.6rem;
+$font-size-xl: 4.8rem;
+$font-size-xxl: 6.4rem;
+
+$lh-small: 1.2;
+$lh-base: 1.4;
+
+// BREAKPOINTS
+
+$breakpoints: (
+    md: 600px,
+    lg: 1200px,
+    xl: 1600px,
+);
+
+// OTHER
+
+$border-radius-base: 10px;
+$content-max-width: 1600px;
+$navbar-height: 74px;

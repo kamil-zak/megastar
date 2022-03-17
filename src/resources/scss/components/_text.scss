@@ -1,0 +1,20 @@
+.c-text {
+    @include responsive(font-size, $font-size-s, $font-size-s);
+    color: $color-gray-dark;
+
+    &--light {
+        color: $color-gray-superlight;
+    }
+
+    &--success {
+        color: #008f77;
+    }
+
+    &--danger {
+        color: #cc2936;
+    }
+
+    &--center {
+        text-align: center;
+    }
+}

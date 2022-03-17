@@ -1,0 +1,21 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.c-spinner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    background: image('oval.svg');
+    background-size: contain;
+    animation: fadeIn 1s;
+    filter: brightness(0) saturate(100%) invert(36%) sepia(65%) saturate(447%) hue-rotate(333deg) brightness(92%) contrast(90%);
+}

@@ -1,0 +1,21 @@
+:root {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: $font-base;
+    line-height: $lh-base;
+    font-size: $font-size-base;
+    font-weight: $font-weight-base;
+}
+
+a[href^='tel'] {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}

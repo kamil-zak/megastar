@@ -1,0 +1,22 @@
+.l-section {
+    @include responsive(padding, 40px 0, 100px 0);
+    background-color: $color-base-superlight;
+
+    &--dark {
+        background-color: $color-base;
+    }
+
+    &--accent {
+        background-color: $color-accent-superlight;
+    }
+
+    &__image {
+        align-self: center;
+        justify-self: center;
+        max-width: 80%;
+
+        &--right {
+            justify-self: right;
+        }
+    }
+}

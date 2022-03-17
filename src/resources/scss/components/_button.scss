@@ -1,0 +1,33 @@
+.c-button {
+    padding-left: 15px;
+    font-size: $font-size-s;
+    color: $color-base-dark;
+    padding: 15px;
+    cursor: pointer;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        background: $color-accent-dark;
+        left: 0;
+        top: 0;
+        width: 5px;
+        height: 100%;
+        transform-origin: left;
+        transition: 0.1s transform ease-in-out;
+    }
+
+    &:hover::after {
+        transform: scaleX(2);
+    }
+
+    &--active::after {
+        transform: scaleX(2);
+    }
+
+    &:disabled {
+        cursor: auto;
+        opacity: 0.5;
+    }
+}

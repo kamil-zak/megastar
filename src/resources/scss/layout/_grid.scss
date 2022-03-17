@@ -1,0 +1,31 @@
+.l-grid {
+    display: grid;
+    gap: 40px;
+    &--2 {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @include breakpoint(md) {
+        &--md2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        &--md3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        &--md4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    @include breakpoint(lg) {
+        &--lg2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        &--lg3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        &--lg4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+}
