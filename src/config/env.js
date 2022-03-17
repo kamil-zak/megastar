@@ -19,4 +19,5 @@ export const emailConfig = {
     },
 }
 
-export const contactMail = process.env.CONTACT_EMAIL || 'test@example.com'
+export const contactMail = process.env.CONTACT_EMAIL || 'contact@example.com'
+export const emailFrom = process.env.EMAIL_FROM || 'from@example.com'
