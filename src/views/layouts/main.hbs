@@ -1,0 +1,38 @@
+<head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>{{title}}</title>
+    <link rel='stylesheet' type='text/css' href='/main.css' />
+    <style>[v-cloak] { display: none; }</style>
+    <link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&amp;display=swap' rel='stylesheet' />
+</head>
+<body>
+    <div class='l-navbar' id='navbar'>
+        <div class='l-container l-navbar__container'>
+            <a href='/'>
+                <img class='l-navbar__logo-image' src='/res/logo-text.svg' alt='Logo Mega Star' />
+            </a>
+            <div class='l-navbar__menu-btn' @click='menuToggle'></div>
+            <ul class='l-navbar__menu-list' :class="{'l-navbar__menu-list--mobile-visible': isMenuVisible}">
+                {{#each pages}}
+                    <li><a class='l-navbar__menu-link {{ifVal isActive 'l-navbar__menu-link--active'}}' href='{{path}}'>{{name}}</a></li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+
+    {{{body}}}
+
+    <div class='l-footer'>
+        <div class='l-container'>
+            <p class='c-text l-footer__text'>Copyright &#169; 2021 MegaStar</p>
+            <p class='c-text l-footer__text'>Designed by Kamil Żak</p>
+        </div>
+    </div>
+    <script src='/libs.bundle.js'></script>
+    <script src='/main.bundle.js'></script>
+    {{#if isDev}}
+        <script src='/reload/reload.js'></script>
+    {{/if}}
+</body>

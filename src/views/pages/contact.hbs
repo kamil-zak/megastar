@@ -1,0 +1,39 @@
+<div class='l-section' id='gallery'>
+    <div class='l-container l-grid l-grid--lg2'>
+        <div class='p-company-data'>
+            <div>
+                <p class='p-company-data__phone'>+48 608 673 554</p>
+                <p class='p-company-data__email'>zak@mega-star.pl</p>
+            </div>
+            <p class='p-company-data__details'>
+                Firma Przewozowa Osób mgr Mirosław Żak<br />
+                ul. Stawowa 1B<br />
+                34-730 Mszana Dolna<br />
+                NIP 737-165-04-11
+            </p>
+            <p class='p-company-data__details'>
+                Bank Spółdzielczy Mszna Dolna<br />
+                SWIFT CODE: POLUPL PR PL<br />
+                81 8808 0006 0010 0003 1945 0005
+            </p>
+        </div>
+        <img src='res/contact.svg' class='l-section__image l-section__image--mdcenter' />
+    </div>
+</div>
+<div class='l-section l-section--accent' id='contact'>
+    <div class='l-container'>
+        <form class='c-form p-contact-form' @submit.prevent='send'>
+            <div class='c-form__field'>
+                <div class='c-form__label'>Twój e-mail</div>
+                <input class='c-form__input' v-model='from' :disabled='isSending' />
+            </div>
+            <div class='c-form__field'>
+                <div class='c-form__label'>Treść</div>
+                <textarea class='c-form__input c-form__input--textarea' v-model='message' :disabled='isSending'></textarea>
+            </div>
+            <div class='c-text c-text--success c-text--center' v-if='isSuccess' v-cloak>Wiadomość została wysłana</div>
+            <div class='c-text c-text--danger c-text--center' v-if='isError' v-cloak>Nie udało się wysłać wiadomości</div>
+            <button class='c-button c-form__submit' :disabled='isSending'>Wyślij</button>
+        </form>
+    </div>
+</div>

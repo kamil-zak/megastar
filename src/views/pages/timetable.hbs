@@ -1,0 +1,44 @@
+{{#if activeId}}
+    <div class='l-section p-line' id='timetable' data-id='{{activeId}}'>
+        <div class='l-container' v-if='status.isLoaded' v-cloak>
+            <div class='l-grid l-grid--lg2'>
+                <direction-timetable
+                    :departures='toDestinationDepartures'
+                    :entry='line.entry'
+                    :destination='line.destination'
+                ></direction-timetable>
+                <direction-timetable
+                    :departures='toEntryDepartures'
+                    :entry='line.destination'
+                    :destination='line.entry'
+                ></direction-timetable>
+
+            </div>
+            <table class='p-foreclosures'>
+                <tr v-for='foreclosure in usedForeclosures'>
+                    <td align='center' class='p-foreclosures__symbol' v-text='foreclosure.symbol'></td>
+                    <td class='p-foreclosures__description' v-text='foreclosure.description'></td>
+                </tr>
+            </table>
+        </div>
+        <div class='c-spinner' v-if='status.isLoading'></div>
+        <p class='p-line__error' v-if='status.isError' v-cloak>
+            Nie udało się pobrać rozkładu jazdy
+            <button class='c-button' @click='load'>Spró buj ponownie</button>
+        </p>
+    </div>
+{{/if}}
+<div class='l-section'>
+    <div class='l-container l-grid l-grid--md2'>
+        <div class='p-lines-list'>
+            {{#each lines}}
+                <a href='/rozklad-jazdy/{{slug}}' class='c-button {{ifVal isActive 'c-button--active'}}'>
+                    {{entry}}
+                    -
+                    {{destination}}
+                </a>
+            {{/each}}
+        </div>
+        <img class='l-section__image' src='/res/busstop.svg' />
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<div class='l-section' id='gallery'>
+    <div class='l-container'>
+        <div class='p-albums-list'>
+            {{#each albums}}
+                <div class='p-album'>
+                    <img class='p-album__image' src='/files/thumb.{{first}}' />
+                    <div class='p-album__description'>
+                        <p class='p-album__name'>{{name}}</p>
+                        <button class='c-button' @click='load("{{_id}}")'>Przeglądaj 16 zdjęć...</button>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+    <div class='p-gallery-app' v-if='isOpen' v-cloak>
+        <div v-if='isLoaded'>
+            <div class='p-gallery-app__main'>
+                <img :src='selectedPhotoUrl' class='p-gallery-app__photo' @touchstart='handleTouchStart' @touchend='handleTouchEnd' />
+                <div v-if='isImageLoading' class='c-spinner'></div>
+                <button @click='selectPrevious' class='p-gallery-app__arrow p-gallery-app__arrow--left' v-if='selectedIndex > 0'></button>
+                <button
+                    @click='selectNext'
+                    class='p-gallery-app__arrow p-gallery-app__arrow--right'
+                    v-if='selectedIndex < photos.length-1'
+                ></button>
+            </div>
+            <div
+                class='p-gallery-app__list'
+                :style="{'--selected': selectedIndex}"
+                @touchstart='handleTouchStart'
+                @touchend='handleTouchEnd'
+            >
+                <img
+                    v-for='(url, index) in thumbUrls'
+                    :src='url'
+                    @click='select(index)'
+                    class='p-gallery-app__item'
+                    :class="{'p-gallery-app__item--light': index !== selectedIndex}"
+                />
+            </div>
+        </div>
+        <div class='c-spinner' v-else></div>
+        <button class='p-gallery-app__close-btn' @click='close'>X</button>
+    </div>
+</div>
