@@ -21,10 +21,8 @@ const pagesController = {
     },
 
     async gallery(req, res) {
-        const albums = await Album.find()
-            .select({ photos: { $slice: 2 } })
-            .lean()
-        const viewAlbums = albums.map(({ _id, name, photos }) => ({ _id, name, first: photos[0] }))
+        const albums = await Album.find().lean()
+        const viewAlbums = albums.map(({ _id, name, photos }) => ({ _id, name, first: photos[0], count: photos.length }))
         res.render('pages/gallery', { albums: viewAlbums })
     },
 
