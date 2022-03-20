@@ -21,13 +21,13 @@
     }
 
     &__subtext {
-        @include responsive(font-size, $font-size-xs, $font-size-s, $font-size-base);
+        @include responsive(font-size, $font-size-xs, $font-size-s);
         color: $color-gray;
         @include responsive(text-align, center, left);
     }
 
     &__text {
-        @include responsive(font-size, $font-size-lg, $font-size-xl, $font-size-xxl);
+        @include responsive(font-size, $font-size-lg, $font-size-xl);
         color: $color-gray-dark;
         @include responsive(text-align, center, left);
     }
@@ -65,14 +65,14 @@
     }
 
     &__phone {
-        @include responsive(font-size, $font-size-base, $lg: $font-size-lg);
+        @include responsive(font-size, $font-size-base);
         color: $color-gray-dark;
     }
 
     &__call {
         grid-column: 2 / span 1;
         justify-self: end;
-        @include responsive(font-size, $font-size-s, $lg: $font-size-base);
+        @include responsive(font-size, $font-size-s);
         color: $color-gray;
     }
 }
