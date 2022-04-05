@@ -12,8 +12,9 @@
         height: 100%;
 
         @include breakpoint(md) {
-            grid-template-columns: max-content 1fr;
+            grid-template-columns: repeat(2, max-content);
             grid-template-rows: auto 1fr;
+            justify-content: space-between;
         }
     }
     &__slogan {
@@ -36,15 +37,17 @@
         display: flex;
         justify-content: center;
         @include breakpoint(md) {
-            justify-content: right;
             grid-row: span 2;
-            padding-bottom: 15vh;
-            padding-top: 30px;
+            display: block;
         }
     }
     &__img {
-        @include responsive(max-width, 100%, inherit);
+        @include responsive(max-width, 100%, auto);
         height: 100%;
+        @include breakpoint(md) {
+            margin-top: 30px;
+            padding-bottom: 15vh;
+        }
     }
 
     &__contact {
