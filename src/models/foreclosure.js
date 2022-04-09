@@ -39,20 +39,20 @@ foreclosureSchema.path('symbol').set(function (value) {
     return value
 })
 
-foreclosureSchema.pre('save', async function () {
-    if (!this.isModified('symbol')) return
-    await this.model('Line').updateMany(
-        {},
-        {
-            $set: {
-                'timetable.$[].time.foreclosures.$[symbol]': this.symbol,
+foreclosureSchema.post('save', async function () {
+    if (this.previousSymbol !== this.symbol)
+        await this.model('Line').updateMany(
+            {},
+            {
+                $set: {
+                    'timetable.$[].time.foreclosures.$[symbol]': this.symbol,
+                },
             },
-        },
-        {
-            arrayFilters: [{ symbol: { $eq: this.previousSymbol } }],
-            multi: true,
-        }
-    )
+            {
+                arrayFilters: [{ symbol: { $eq: this.previousSymbol } }],
+                multi: true,
+            }
+        )
 })
 
 foreclosureSchema.post('save', function (error, res, next) {
