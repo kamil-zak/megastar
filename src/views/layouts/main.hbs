@@ -16,7 +16,7 @@
             <div class='l-navbar__menu-btn' @click='menuToggle'></div>
             <ul class='l-navbar__menu-list' :class="{'l-navbar__menu-list--mobile-visible': isMenuVisible}">
                 {{#each pages}}
-                    <li><a class='l-navbar__menu-link {{ifVal isActive 'l-navbar__menu-link--active'}}' href='{{path}}'>{{name}}</a></li>
+                    <li><a class='l-navbar__menu-link {{ifVal isActive "l-navbar__menu-link--active"}}' href='{{path}}'>{{name}}</a></li>
                 {{/each}}
             </ul>
         </div>

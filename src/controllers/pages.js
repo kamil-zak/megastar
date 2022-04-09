@@ -1,5 +1,7 @@
 import Line from '../models/line.js'
 import Album from '../models/album.js'
+import Foreclosure from '../models/foreclosure.js'
+import { generateLinePDF } from '../services/PDF.js'
 
 const pagesController = {
     home(req, res) {
@@ -18,6 +20,16 @@ const pagesController = {
         const viewLines = lines.map((line) => ({ ...line, isActive: line._id === selected._id }))
         const title = `${selected.entry} - ${selected.destination} | ${res.locals.title}`
         res.render('pages/timetable', { lines: viewLines, activeId: selected._id, title })
+    },
+
+    async timetableDownload(req, res, next) {
+        const line = await Line.findById(req.params.id).lean()
+        if (!line) return next()
+        const foreclosures = await Foreclosure.find().select('symbol description').lean()
+        const stream = await generateLinePDF(line, foreclosures)
+        res.setHeader('Content-Disposition', `inline; filename=${line.slug}.pdf`)
+        res.setHeader('Content-type', 'application/pdf')
+        stream.pipe(res)
     },
 
     async gallery(req, res) {

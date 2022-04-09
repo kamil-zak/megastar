@@ -20,11 +20,12 @@
                     <td class='p-foreclosures__description' v-text='foreclosure.description'></td>
                 </tr>
             </table>
+            <a href='/rozklad-jazdy/pdf/{{activeId}}' target='_blank'><button class='c-button'>Pobierz PDF</button></a>
         </div>
         <div class='c-spinner' v-if='status.isLoading'></div>
         <p class='p-line__error' v-if='status.isError' v-cloak>
             Nie udało się pobrać rozkładu jazdy
-            <button class='c-button' @click='load'>Spró buj ponownie</button>
+            <button class='c-button' @click='load'>Spróbuj ponownie</button>
         </p>
     </div>
 {{/if}}
@@ -32,7 +33,7 @@
     <div class='l-container l-grid l-grid--md2'>
         <div class='p-lines-list'>
             {{#each lines}}
-                <a href='/rozklad-jazdy/{{slug}}' class='c-button {{ifVal isActive 'c-button--active'}}'>
+                <a href='/rozklad-jazdy/{{slug}}' class='c-button {{ifVal isActive "c-button--active"}}'>
                     {{entry}}
                     -
                     {{destination}}

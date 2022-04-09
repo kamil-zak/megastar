@@ -6,7 +6,8 @@ const pagesRouter = express.Router()
 
 pagesRouter.get('/', pagesController.home)
 pagesRouter.get('/rozklad-jazdy', ash(pagesController.timetable))
-pagesRouter.get('/rozklad-jazdy/:slug?', ash(pagesController.timetableDetails))
+pagesRouter.get('/rozklad-jazdy/:slug', ash(pagesController.timetableDetails))
+pagesRouter.get('/rozklad-jazdy/pdf/:id', ash(pagesController.timetableDownload))
 pagesRouter.get('/galeria', ash(pagesController.gallery))
 pagesRouter.get('/kontakt', pagesController.contact)
 

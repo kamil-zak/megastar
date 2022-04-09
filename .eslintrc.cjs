@@ -13,5 +13,6 @@ module.exports = {
         'import/extensions': 'off',
         'no-underscore-dangle': 'off',
         'func-names': 'off',
+        'import/prefer-default-export': 'off',
     },
 }
