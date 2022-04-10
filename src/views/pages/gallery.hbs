@@ -1,5 +1,5 @@
 <div class='l-section' id='gallery'>
-    <div class='l-container'>
+    <div class='l-container l-grid l-grid--lg2'>
         <div class='p-albums-list'>
             {{#each albums}}
                 <div class='p-album'>
@@ -11,6 +11,7 @@
                 </div>
             {{/each}}
         </div>
+        <img src='res/gallery.svg' class='l-section__image' alt='' />
     </div>
     <div class='p-gallery-app' v-if='isOpen' v-cloak>
         <div v-if='isLoaded'>
