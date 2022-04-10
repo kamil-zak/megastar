@@ -14,7 +14,7 @@
                 <img class='l-navbar__logo-image' src='/res/logo-text.svg' alt='Logo Mega Star' />
             </a>
             <div class='l-navbar__menu-btn' @click='menuToggle'></div>
-            <ul class='l-navbar__menu-list' :class="{'l-navbar__menu-list--mobile-visible': isMenuVisible}">
+            <ul class='l-navbar__menu-list' :class="{'l-navbar__menu-list--mobile-visible': isMenuVisible}" v-cloak>
                 {{#each pages}}
                     <li><a class='l-navbar__menu-link {{ifVal isActive "l-navbar__menu-link--active"}}' href='{{path}}'>{{name}}</a></li>
                 {{/each}}
