@@ -1,0 +1,16 @@
+[data-reveal].active {
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+[data-reveal]:not(.active) {
+    @include responsive(--size, 20px, 40px);
+    opacity: 0;
+    transform: translateY(calc(var(--size) * -1));
+
+    &[data-reveal='left'] {
+        transform: translateX(calc(var(--size) * -1));
+    }
+
+    &[data-reveal='right'] {
+        transform: translateX(var(--size));
+    }
+}

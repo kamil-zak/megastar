@@ -12,6 +12,7 @@
 @import 'base/reset';
 @import 'base/generic';
 @import 'base/utilities';
+@import 'base/reveal';
 
 // ----------------------------------
 // COMPONENTS
@@ -27,6 +28,7 @@
 // ----------------------------------
 // LAYOUT
 // ----------------------------------
+@import 'layout/content';
 @import 'layout/container';
 @import 'layout/navbar';
 @import 'layout/footer';
