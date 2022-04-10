@@ -11,6 +11,12 @@ const emailController = {
             subject: 'Kontakt ze strony WWW',
             text: message,
         })
+        await transporter.sendMail({
+            from: emailFrom,
+            to: from,
+            subject: '[mega-star] Otrzymaliśmy twoją wiadomość!',
+            text: `Witaj,\n Informujemy, że otrzymaliśmy Twoją wiadomość i postaramy się na nią odpowiedzieć jak najszyciej.\n\nTreść wiadomości:\n\n${message}`,
+        })
         res.send({ success: true })
     },
 }
