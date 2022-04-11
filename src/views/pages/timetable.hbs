@@ -1,6 +1,7 @@
 {{#if activeId}}
     <div class='l-section p-line' id='timetable' data-id='{{activeId}}'>
-        <div class='l-container' v-if='status.isLoaded' v-cloak>
+        <div class='l-container l-grid' v-if='status.isLoaded' v-cloak>
+            <div class='c-text' v-html='description'></div>
             <div class='l-grid l-grid--lg2'>
                 <direction-timetable
                     :departures='toDestinationDepartures'

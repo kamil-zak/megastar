@@ -64,6 +64,9 @@ const timetableApp = Vue.createApp({
             if (!this.line) return []
             return this.line.timetable.filter((dep) => dep.direction === 'entry').map((dep) => ({ ...dep, isActive: this.isActive(dep) }))
         },
+        description() {
+            return this.line.description.replaceAll('\n', '<br/>')
+        },
     },
 })
 

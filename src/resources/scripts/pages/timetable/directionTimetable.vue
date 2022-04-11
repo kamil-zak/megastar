@@ -3,13 +3,13 @@
         <div class="p-direction__points">{{ entry }} - {{ destination }}</div>
         <div v-if="nextDeparture">
             <div class="p-direction__label">Najbliższy dzisiejszy odjazd:</div>
-            <div class="p-direction__next">{{ formatTime(nextDeparture) }}</div>
+            <div class="c-text c-text--danger">{{ formatTime(nextDeparture) }}</div>
         </div>
         <div v-if="nextDeparture">
             <div class="p-direction__label">Do odjazdu:</div>
-            <div class="p-direction__next">{{ remainingText }}</div>
+            <div class="c-text c-text--danger">{{ remainingText }}</div>
         </div>
-        <div class="p-direction__info" v-else>Dzisiaj brak odjazdów</div>
+        <div class="c-text c-text--danger" v-else>Dzisiaj brak odjazdów</div>
         <timeList title="" :list="week" :next="nextDeparture" />
         <timeList title="Sobota" :list="saturday" :next="nextDeparture" />
         <timeList title="Niedziela" :list="sunday" :next="nextDeparture" />
@@ -62,7 +62,6 @@ export default {
             return this.departures.filter((dep) => dep.type === 'sunday')
         },
         remainingText() {
-            if (this.nextRemaining === 0) return 'BRAK'
             return new Date(this.nextRemaining).toISOString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, '$1')
         },
     },

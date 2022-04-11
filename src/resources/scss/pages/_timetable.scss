@@ -48,16 +48,6 @@
         color: $color-gray;
         text-align: center;
     }
-    &__next {
-        font-size: $font-size-s;
-        font-weight: $font-weight-bold;
-        color: $color-accent;
-        text-align: center;
-    }
-
-    &__info {
-        font-size: $font-size-s;
-    }
 }
 
 .p-timetable {
@@ -85,13 +75,13 @@
         border-bottom: 3px solid $color-accent;
         padding-bottom: 6px;
         &--active {
-            border-color: red;
+            border-color: $color-danger;
         }
     }
 }
 
 .p-foreclosures {
-    margin: 50px auto;
+    margin: 0 auto;
     &__symbol {
         font-size: $font-size-base;
         font-weight: $font-weight-bold;
