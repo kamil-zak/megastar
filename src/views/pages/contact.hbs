@@ -25,14 +25,15 @@
         <form class='c-form p-contact-form' @submit.prevent='send'>
             <div class='c-form__field'>
                 <div class='c-form__label'>Twój e-mail</div>
-                <input class='c-form__input' v-model='from' :disabled='isSending' />
+                <input type='email' class='c-form__input' v-model='from' :disabled='isSending' required />
             </div>
             <div class='c-form__field'>
                 <div class='c-form__label'>Treść</div>
-                <textarea class='c-form__input c-form__input--textarea' v-model='message' :disabled='isSending'></textarea>
+                <textarea class='c-form__input c-form__input--textarea' v-model='message' maxlength='2000' :disabled='isSending'></textarea>
             </div>
             <div class='c-text c-text--success c-text--center' v-if='isSuccess' v-cloak>Wiadomość została wysłana</div>
             <div class='c-text c-text--danger c-text--center' v-if='isError' v-cloak>Nie udało się wysłać wiadomości</div>
+            <div class='c-text c-text--danger c-text--center' v-if='validationMessage' v-html='validationMessage' v-cloak></div>
             <button class='c-button c-form__submit' :disabled='isSending'>Wyślij</button>
         </form>
     </div>

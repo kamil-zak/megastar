@@ -7,13 +7,23 @@ const contactApp = Vue.createApp({
         return {
             from: '',
             message: '',
+            validationMessage: '',
             isSending: false,
             isSuccess: false,
             isError: false,
         }
     },
     methods: {
+        validate() {
+            this.validationMessage = ''
+            if (this.message.length < 10) {
+                this.validationMessage = 'Minimalna długość wiadomości to 10 znaków'
+                return false
+            }
+            return true
+        },
         send() {
+            if (!this.validate()) return
             this.isSending = true
             fetch(`api/sendmail`, {
                 method: 'POST',
