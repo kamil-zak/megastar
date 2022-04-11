@@ -61,18 +61,24 @@
 
     &__arrow {
         position: absolute;
-        width: 50px;
-        height: 50px;
-        background: $color-base-superlight;
-        border: 2px solid $color-base-dark;
+        width: 45px;
+        height: 45px;
+        background: $color-accent-light;
+        border: 2px solid $color-accent-superdark;
         cursor: pointer;
+
+        transition: opacity 0.1s ease-in-out;
+        opacity: 0.8;
+        &:hover {
+            opacity: 1;
+        }
 
         &::after {
             content: '';
             position: absolute;
             left: 50%;
             top: 50%;
-            border: solid $color-base-dark;
+            border: solid $color-accent-superdark;
             border-width: 0 3px 3px 0;
             padding: 3px;
         }
@@ -117,13 +123,19 @@
 
     &__close-btn {
         position: absolute;
-        border: 2px solid $color-base-dark;
-        background: $color-gray-superlight;
+        border: 2px solid $color-accent-superdark;
+        background: $color-accent-light;
         border-radius: $border-radius-base;
-        padding: 10px 13px;
+        padding: 8px 15px;
         top: 10px;
         right: 10px;
-        color: $color-base-dark;
+        color: $color-accent-superdark;
         cursor: pointer;
+
+        transition: opacity 0.1s ease-in-out;
+        opacity: 0.8;
+        &:hover {
+            opacity: 1;
+        }
     }
 }
