@@ -7,7 +7,7 @@ import { apiSecret } from '../../config/env.js'
 const authController = {
     async login(req, res, next) {
         const { login, password } = req.body
-        const user = await User.findOne({ login })
+        const user = await User.findOne({ login: login.toLowerCase() })
         if (!user || !(await user.comparePassword(password))) return next(new BaseError(CODES.LOGIN))
 
         const token = jwt.sign({ login: user.login }, apiSecret.token, {
