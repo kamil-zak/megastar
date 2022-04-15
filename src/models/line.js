@@ -4,30 +4,30 @@ import { CODES } from '../config/errorCodes.js'
 import BaseError from '../helpers/BaseError.js'
 import customOrder from './plugins/customOrder.js'
 
+const departureSchema = mongoose.Schema({
+    type: {
+        type: String,
+        required: true,
+        enum: ['week', 'saturday', 'sunday'],
+    },
+    direction: {
+        type: String,
+        required: true,
+        enum: ['destination', 'entry'],
+    },
+    time: {
+        hours: { type: Number, min: 0, max: 23, required: true },
+        mins: { type: Number, min: 0, max: 59, required: true },
+        foreclosures: { type: [{ type: String, match: /^[A-Z]$/ }], required: true },
+    },
+    id: { type: String, required: true },
+})
+
 const lineSchema = mongoose.Schema({
-    entry: { type: String, required: true },
-    destination: { type: String, required: true },
+    entry: { type: String, required: true, minLength: 3 },
+    destination: { type: String, required: true, minLength: 3 },
     description: { type: String },
-    timetable: [
-        {
-            type: {
-                type: String,
-                required: true,
-                enum: ['week', 'saturday', 'sunday'],
-            },
-            direction: {
-                type: String,
-                required: true,
-                enum: ['destination', 'entry'],
-            },
-            time: {
-                hours: { type: Number, min: 0, max: 23, required: true },
-                mins: { type: Number, min: 0, max: 59, required: true },
-                foreclosures: [{ type: String, match: /^[A-Z]$/, required: true }],
-            },
-            id: { type: String, required: true },
-        },
-    ],
+    timetable: { type: [departureSchema], validate: (arr) => !!arr.length },
 })
 
 lineSchema.pre('save', async function () {

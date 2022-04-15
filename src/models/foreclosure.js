@@ -8,19 +8,25 @@ const dateSchema = {
     month: { type: Number, min: 0, max: 11, required: true },
 }
 
+const listSchema = mongoose.Schema({
+    days: [{ type: Number, min: 0, max: 6 }],
+    dates: [{ ...dateSchema, id: { type: String, required: true } }],
+    intervals: [
+        {
+            from: dateSchema,
+            to: dateSchema,
+            id: { type: String, required: true },
+        },
+    ],
+})
+
 const foreclosureSchema = mongoose.Schema({
     symbol: { type: String, unique: true, required: true, match: /^[A-Z]$/ },
-    description: { type: String, required: true },
+    description: { type: String, required: true, minLength: 10 },
     list: {
-        days: [{ type: Number, min: 0, max: 6 }],
-        dates: [{ ...dateSchema, id: { type: String, required: true } }],
-        intervals: [
-            {
-                from: dateSchema,
-                to: dateSchema,
-                id: { type: String, required: true },
-            },
-        ],
+        type: listSchema,
+        required: true,
+        validate: (list) => list.days.length + list.dates.length + list.intervals.length > 0,
     },
 })
 
