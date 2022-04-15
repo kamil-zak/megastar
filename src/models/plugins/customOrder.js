@@ -3,7 +3,7 @@ const customOrder = (schema) => {
 
     schema.pre('save', async function () {
         if (!this.isNew) return
-        const count = await this.constructor.find().count()
+        const count = await this.constructor.find().countDocuments()
         this.order = count + 1
     })
 
