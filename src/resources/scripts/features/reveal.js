@@ -1,9 +1,12 @@
-const items = Array.from(document.querySelectorAll('[data-reveal]'))
-const reveal = () => {
-    items.forEach((item) => {
-        const elementTop = item.getBoundingClientRect().top
-        if (elementTop < window.innerHeight - 150) item.classList.add('active')
+const callback = (entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('active')
     })
 }
-document.addEventListener('scroll', reveal)
-reveal()
+
+const observer = new IntersectionObserver(callback, {
+    rootMargin: '-100px',
+    threshold: 0,
+})
+
+document.querySelectorAll('[data-reveal]').forEach((item) => observer.observe(item))
