@@ -1,5 +1,6 @@
 import { join } from 'path'
 import express from 'express'
+import compression from 'compression'
 import { notFound, catchWebErrors, catchApiErrors, catchMongoErrors } from './middlewares/errors.js'
 import dev from './middlewares/dev.js'
 import apiRouter from './routes/api.js'
@@ -8,6 +9,7 @@ import configHandlebars from './config/handlebars.js'
 import pagesMiddleware from './middlewares/pages.js'
 
 const app = express()
+app.use(compression())
 
 configHandlebars(app)
 
