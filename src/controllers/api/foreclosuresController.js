@@ -2,7 +2,8 @@ import Foreclosure from '../../models/foreclosure.js'
 
 const foreclosuresController = {
     async findAll(req, res) {
-        const foreclosures = await Foreclosure.find()
+        const fields = (req.query.fields || '').replaceAll(',', ' ')
+        const foreclosures = await Foreclosure.find().select(fields)
         res.send(foreclosures)
     },
     async findOne(req, res, next) {

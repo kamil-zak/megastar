@@ -7,9 +7,8 @@ import { CODES } from '../../constants/errorCodes.js'
 const albumController = {
     async findAll(req, res) {
         const { photosCount } = req.query
-        const fields = {}
-        if (photosCount) fields.photos = { $slice: Number(photosCount) }
-        const documents = await Album.find({}, fields)
+        const fields = photosCount ? { photos: { $slice: Number(photosCount) } } : {}
+        const documents = await Album.find().select(fields)
         res.send(documents)
     },
     async findOne(req, res, next) {

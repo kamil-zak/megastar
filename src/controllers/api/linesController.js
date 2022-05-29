@@ -2,7 +2,8 @@ import Line from '../../models/line.js'
 
 const linesController = {
     async findAll(req, res) {
-        const documents = await Line.find()
+        const fields = (req.query.fields || '').replaceAll(',', ' ')
+        const documents = await Line.find().select(fields)
         res.send(documents)
     },
     async findOne(req, res, next) {
