@@ -1,7 +1,7 @@
 /* eslint no-unused-vars: ["error", { "args": "none" }] */
 import mongoose from 'mongoose'
 import BaseError from '../helpers/BaseError.js'
-import { CODES } from '../config/errorCodes.js'
+import { CODES } from '../constants/errorCodes.js'
 
 export const notFound = (req, res, next) => {
     next(new BaseError(CODES.NOTFOUND))

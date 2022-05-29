@@ -13,7 +13,8 @@ const router = express.Router()
 router.post('/sendmail', ash(emailController.sendContactMail))
 
 router.post('/auth/login', ash(authController.login))
-router.post('/auth/refresh', ash(authController.refresh))
+router.get('/auth/refresh', ash(authController.refresh))
+router.get('/auth/logout', ash(authController.logout))
 router.get('/me', auth, ash(authController.me))
 
 router.get('/lines', ash(linesController.findAll))

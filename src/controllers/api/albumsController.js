@@ -2,7 +2,7 @@ import sharp from 'sharp'
 import fs from 'fs'
 import Album from '../../models/album.js'
 import BaseError from '../../helpers/BaseError.js'
-import { CODES } from '../../config/errorCodes.js'
+import { CODES } from '../../constants/errorCodes.js'
 
 const albumController = {
     async findAll(req, res) {

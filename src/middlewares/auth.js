@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken'
 import { apiSecret } from '../config/env.js'
-import { CODES } from '../config/errorCodes.js'
+import { CODES } from '../constants/errorCodes.js'
 import BaseError from '../helpers/BaseError.js'
 
 const auth = (req, res, next) => {

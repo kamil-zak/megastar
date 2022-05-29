@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 import URLSlugs from 'mongoose-url-slugs'
-import { CODES } from '../config/errorCodes.js'
+import { CODES } from '../constants/errorCodes.js'
 import BaseError from '../helpers/BaseError.js'
 import customOrder from './plugins/customOrder.js'
 

@@ -1,4 +1,4 @@
-import { CODES, DETAILS } from '../config/errorCodes.js'
+import { CODES, DETAILS } from '../constants/errorCodes.js'
 
 class BaseError extends Error {
     constructor(code = CODES.DEFAULT) {

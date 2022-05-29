@@ -17,7 +17,7 @@ export const DETAILS = {
     [CODES.DEFAULT]: { message: 'Wystąpił błąd', status: 500 },
     [CODES.UNAUTHENTICATED]: { message: 'Nie udało się uwierzytelnić użytkownika', status: 401 },
     [CODES.UNAUTHORIZED]: { message: 'Nieautoryzowany dostęp', status: 403 },
-    [CODES.NOTOKEN]: { message: 'Nie przesłano tokena uwierzytelniającego', status: 400 },
+    [CODES.NOTOKEN]: { message: 'Nie przesłano tokena uwierzytelniającego', status: 401 },
     [CODES.LOGIN]: { message: 'Nie udało się zalogować', status: 401 },
     [CODES.BADREQUESST]: { message: 'Przesłane zapytanie jest niepoprawne', status: 400 },
     [CODES.NOTFOUND]: { message: 'Nie znaleziono', status: 404 },
